@@ -1,0 +1,59 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+void nhapmang(int a[], int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<"phan tu cua mang a ["<<i<<"] : ";
+        cin>>a[i];
+    }
+}
+void xuatmang (int a[], int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i]<< " ";
+    }
+}int timphantu(int a[], int n, int val)
+ {
+     for( int i=0; i<n; i++)
+     {
+         if(a[i]==val)
+            return i;
+     }
+     return -1;
+ }
+void xoaphantu(int a[], int &n, int pos)
+{
+    int vt=timphantu(a,n,pos);
+    if(vt==-1)
+    {
+        cout<< ("khong tim thay phan tu muon xoa");
+
+    }
+    else
+    {
+        for(int i=vt;i<=n-2;i++)
+            a[i]=a[i+1]; //dịch các phần tử sang trái 1 vị trí
+        n--; //giảm số phan tử bớt 1
+    }
+
+
+}
+int main()
+
+{ int a[1000],pos,val,n;
+cin>>n;
+nhapmang(a,n);
+cout<<"nhap gia tri muon xoa: ";
+cin>>pos;
+xoaphantu(a,n,pos);
+cout<<"mang sau khi xoa"<<endl ;
+xuatmang(a,n);
+
+    return 0;
+}
+
+
